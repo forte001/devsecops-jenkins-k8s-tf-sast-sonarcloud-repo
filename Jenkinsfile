@@ -10,7 +10,7 @@ pipeline {
                     sh '''
                         mvn clean verify sonar:sonar \
                         -Dsonar.projectKey=buggytestwebapp \
-                        -Dsonar.organization=devsecops \
+                        -Dsonar.organization=Devsecops \
                         -Dsonar.host.url=https://sonarcloud.io \
                         -Dsonar.login=$SONAR_TOKEN
                     '''

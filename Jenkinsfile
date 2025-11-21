@@ -10,7 +10,7 @@ pipeline {
                     sh '''
                         mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
                         -Dsonar.projectKey=buggytestwebapp_devsecops \
-                        -Dsonar.organization=buggytestwebapp \
+                        -Dsonar.organization=devsecops \
                         -Dsonar.host.url=https://sonarcloud.io \
                         -Dsonar.login=$SONAR_TOKEN
                     '''

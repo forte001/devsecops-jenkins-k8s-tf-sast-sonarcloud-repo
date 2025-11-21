@@ -3,14 +3,14 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.t246osslab.easybuggy</groupId>
-	<artifactId>easybuggy</artifactId>
+	<groupId>org.t246osslab.buggytestwebapp</groupId>
+	<artifactId>buggytestwebapp</artifactId>
 	<version>1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<easybuggy-port>8080</easybuggy-port>
+		<buggytestwebapp-port>8080</buggytestwebapp-port>
 		<!-- default properties (JDK 1.7 or earlier) -->
 		<jvm.args.gc.log.path>-Xloggc:logs/gc.log</jvm.args.gc.log.path>
 		<jvm.args.print.heap.at.gc>-XX:+PrintHeapAtGC</jvm.args.print.heap.at.gc>
@@ -159,7 +159,7 @@
 								<requireJavaVersion>
 									<version>[1.6,)</version>
 									<message>[ERROR] OLD JDK [${java.version}] in use.
-										EasyBuggy requires JDK 1.6 or later</message>
+										buggytestwebapp requires JDK 1.6 or later</message>
 								</requireJavaVersion>
 							</rules>
 						</configuration>
@@ -207,7 +207,7 @@
 								<copy file="${basedir}/src/main/resources/indexpage_en.properties"
 									tofile="${project.build.outputDirectory}/indexpage.properties" />
 								<delete
-									file="${project.build.outputDirectory}/org/t246osslab/easybuggy/core/utils/DeleteClassWhileMavenBuild.class" />
+									file="${project.build.outputDirectory}/org/t246osslab/buggytestwebapp/core/utils/DeleteClassWhileMavenBuild.class" />
 							</target>
 						</configuration>
 					</execution>
@@ -235,7 +235,7 @@
 						<configuration>
 							<path>/</path>
 							<enableNaming>true</enableNaming>
-							<finalName>easybuggy.jar</finalName>
+							<finalName>buggytestwebapp.jar</finalName>
 						</configuration>
 					</execution>
 				</executions>
@@ -294,11 +294,11 @@
 								<argument>-Dcom.sun.management.jmxremote.authenticate=false</argument>
 								<!-- <argument>-Djava.security.manager</argument>
 								<argument>-Djava.security.policy=catalina.policy</argument> -->
-								<!-- <argument>-Deasybuggy.mode=only-vulnerabilities</argument> -->
+								<!-- <argument>-Dbuggytestwebapp.mode=only-vulnerabilities</argument> -->
 								<argument>-ea</argument>
 								<argument>-jar</argument>
-								<argument>target/easybuggy.jar</argument>
-								<argument>-httpPort=${easybuggy-port}</argument>
+								<argument>target/buggytestwebapp.jar</argument>
+								<argument>-httpPort=${buggytestwebapp-port}</argument>
 							</arguments>
 						</configuration>
 					</execution>

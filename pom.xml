@@ -21,7 +21,7 @@
 		<jvm.args.gc.log.file.size>-XX:GCLogFileSize=10M</jvm.args.gc.log.file.size>
 
 		<!-- SonarCloud Property -->
-		<sonar.organization>buggytestwebapp</sonar.organization>
+		<sonar.organization>devsecops</sonar.organization>
 	</properties>
 
 	<profiles>

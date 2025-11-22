@@ -3,14 +3,14 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.t246osslab.devsectest-org_devsectest-org</groupId>
-	<artifactId>devsectest-org_devsectest-org</artifactId>
+	<groupId>org.t246osslab.easybuggy</groupId>
+	<artifactId>easybuggy</artifactId>
 	<version>1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<devsectest-org_devsectest-org-port>8080</devsectest-org_devsectest-org-port>
+		<easybuggy-port>8080</easybuggy-port>
 		<!-- default properties (JDK 1.7 or earlier) -->
 		<jvm.args.gc.log.path>-Xloggc:logs/gc.log</jvm.args.gc.log.path>
 		<jvm.args.print.heap.at.gc>-XX:+PrintHeapAtGC</jvm.args.print.heap.at.gc>
@@ -20,8 +20,7 @@
 		<jvm.args.number.of.gc.log.files>-XX:NumberOfGCLogFiles=5</jvm.args.number.of.gc.log.files>
 		<jvm.args.gc.log.file.size>-XX:GCLogFileSize=10M</jvm.args.gc.log.file.size>
 
-		<!-- SonarCloud Property -->
-		<sonar.organization>devsectest-org</sonar.organization>
+		<sonar.organization>buggytestwebapp</sonar.organization>
 	</properties>
 
 	<profiles>
@@ -159,7 +158,7 @@
 								<requireJavaVersion>
 									<version>[1.6,)</version>
 									<message>[ERROR] OLD JDK [${java.version}] in use.
-										devsectest-org_devsectest-org requires JDK 1.6 or later</message>
+										EasyBuggy requires JDK 1.6 or later</message>
 								</requireJavaVersion>
 							</rules>
 						</configuration>
@@ -207,7 +206,7 @@
 								<copy file="${basedir}/src/main/resources/indexpage_en.properties"
 									tofile="${project.build.outputDirectory}/indexpage.properties" />
 								<delete
-									file="${project.build.outputDirectory}/org/t246osslab/devsectest-org_devsectest-org/core/utils/DeleteClassWhileMavenBuild.class" />
+									file="${project.build.outputDirectory}/org/t246osslab/easybuggy/core/utils/DeleteClassWhileMavenBuild.class" />
 							</target>
 						</configuration>
 					</execution>
@@ -235,7 +234,7 @@
 						<configuration>
 							<path>/</path>
 							<enableNaming>true</enableNaming>
-							<finalName>devsectest-org_devsectest-org.jar</finalName>
+							<finalName>easybuggy.jar</finalName>
 						</configuration>
 					</execution>
 				</executions>
@@ -294,11 +293,11 @@
 								<argument>-Dcom.sun.management.jmxremote.authenticate=false</argument>
 								<!-- <argument>-Djava.security.manager</argument>
 								<argument>-Djava.security.policy=catalina.policy</argument> -->
-								<!-- <argument>-Ddevsectest-org_devsectest-org.mode=only-vulnerabilities</argument> -->
+								<!-- <argument>-Deasybuggy.mode=only-vulnerabilities</argument> -->
 								<argument>-ea</argument>
 								<argument>-jar</argument>
-								<argument>target/devsectest-org_devsectest-org.jar</argument>
-								<argument>-httpPort=${devsectest-org_devsectest-org-port}</argument>
+								<argument>target/easybuggy.jar</argument>
+								<argument>-httpPort=${easybuggy-port}</argument>
 							</arguments>
 						</configuration>
 					</execution>

@@ -20,7 +20,7 @@
 		<jvm.args.number.of.gc.log.files>-XX:NumberOfGCLogFiles=5</jvm.args.number.of.gc.log.files>
 		<jvm.args.gc.log.file.size>-XX:GCLogFileSize=10M</jvm.args.gc.log.file.size>
 
-		<sonar.organization>buggytestwebapp</sonar.organization>
+		 <sonar.organization>secopstest</sonar.organization>
 	</properties>
 
 	<profiles>

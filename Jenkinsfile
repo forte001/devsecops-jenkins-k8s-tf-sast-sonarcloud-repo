@@ -44,6 +44,30 @@ pipeline {
             }
     	}
 
+		stage('Kubernetes Deployment of Devsectest Web Application') {
+	   steps {
+	      withKubeConfig([credentialsId: 'kubelogin']) {
+		  sh('kubectl delete all --all -n devsecops')
+		  sh ('kubectl apply -f deployment.yaml --namespace=secopstest')
+		}
+	      }
+   	}
+
+	stage ('wait_for_testing'){
+	   steps {
+		   sh 'pwd; sleep 180; echo "Application Has been deployed on K8S"'
+	   	}
+	   }
+	   
+	stage('RunDASTUsingZAP') {
+          steps {
+		    withKubeConfig([credentialsId: 'kubelogin']) {
+				sh('zap.sh -cmd -quickurl http://$(kubectl get services/devsectest --namespace=secopstest -o json| jq -r ".status.loadBalancer.ingress[] | .hostname") -quickprogress -quickout ${WORKSPACE}/zap_report.html')
+				archiveArtifacts artifacts: 'zap_report.html'
+		    }
+	     }
+       } 
+
 
 
 }

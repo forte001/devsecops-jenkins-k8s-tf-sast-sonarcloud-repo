@@ -24,6 +24,26 @@ pipeline {
 				}
 			}
 }
+		stage('Build') { 
+            steps { 
+               withDockerRegistry([credentialsId: "dockerlogin", url: ""]) {
+                 script{
+                 app =  docker.build("secopstest")
+                 }
+               }
+            }
+    }
+
+	stage('Push') {
+            steps {
+                script{
+                    docker.withRegistry('https:985261590416.dkr.ecr.us-west-2.amazonaws.com', 'ecr:us-west-2:aws-credentials') {
+                    app.push("latest")
+                    }
+                }
+            }
+    	}
+
 
 
 }
